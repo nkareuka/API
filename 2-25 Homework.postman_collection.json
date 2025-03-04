@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "9ccf31ab-4ed9-45ef-a94b-8978946a54ba",
+		"name": "2-25 Homework",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33855174"
+	},
+	"item": [
+		{
+			"name": "Authorization 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Exploratory1@1.1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Exploratory1@1.1",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://radio-shop.megaplan.by/api/v3/auth/access_token",
+					"protocol": "https",
+					"host": [
+						"radio-shop",
+						"megaplan",
+						"by"
+					],
+					"path": [
+						"api",
+						"v3",
+						"auth",
+						"access_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer NzA3NTUxNWY4NDc4OTA4NmVjODBkMzMxMjk5ZTI3NWRiZjZhMzY2YmMwMWJkMjA5YTE2MzA3NzUzZmZiMzZjNw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"contentType\": \"Task\",\r\n\"name\": \"Покормить медведя\",\r\n\"isTemplate\": false,\r\n\"isOverdue\": false,\r\n        \"status\": \"assigned\",\r\n            \"owner\": {\r\n            \"contentType\": \"Employee\",\r\n            \"id\": \"1000104\"\r\n            },\r\n         \"isTemplateOwnerCurrentUser\": true,\r\n        \"deadline\": {\r\n            \"contentType\": \"DateOnly\",\r\n            \"year\": 2025,\r\n            \"month\": 2,\r\n            \"day\": 30\r\n        },\r\n        \"responsible\": {\r\n            \"contentType\": \"Employee\",\r\n            \"id\": \"1000105\"\r\n        },\r\n        \"completed\": 0,\r\n        \"isUrgent\": false,\r\n        \"participants\": [\r\n            {\r\n                \"contentType\": \"Employee\",\r\n                \"id\": \"1000104\"\r\n            },\r\n            {\r\n                \"contentType\": \"Employee\",\r\n                \"id\": \"1000105\"\r\n            }\r\n        ],\r\n            \"activity\": {\r\n            \"contentType\": \"DateTime\",\r\n            \"value\": \"2025-03-02T10:50:39+00:00\"\r\n        }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://radio-shop.megaplan.by/api/v3/task",
+					"protocol": "https",
+					"host": [
+						"radio-shop",
+						"megaplan",
+						"by"
+					],
+					"path": [
+						"api",
+						"v3",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update task description",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer NzA3NTUxNWY4NDc4OTA4NmVjODBkMzMxMjk5ZTI3NWRiZjZhMzY2YmMwMWJkMjA5YTE2MzA3NzUzZmZiMzZjNw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"contentType\": \"Task\",\r\n\"name\": \"Покормить медведя\",\r\n\"isTemplate\": false,\r\n\"isOverdue\": false,\r\n        \"status\": \"assigned\",\r\n            \"owner\": {\r\n            \"contentType\": \"Employee\",\r\n            \"id\": \"1000104\"\r\n            },\r\n         \"isTemplateOwnerCurrentUser\": true,\r\n        \"deadline\": {\r\n            \"contentType\": \"DateOnly\",\r\n            \"year\": 2025,\r\n            \"month\": 2,\r\n            \"day\": 30\r\n        },\r\n        \"responsible\": {\r\n            \"contentType\": \"Employee\",\r\n            \"id\": \"1000105\"\r\n        },\r\n        \"completed\": 0,\r\n        \"isUrgent\": false,\r\n        \"participants\": [\r\n            {\r\n                \"contentType\": \"Employee\",\r\n                \"id\": \"1000104\"\r\n            },\r\n            {\r\n                \"contentType\": \"Employee\",\r\n                \"id\": \"1000105\"\r\n            }\r\n        ],\r\n            \"activity\": {\r\n            \"contentType\": \"DateTime\",\r\n            \"value\": \"2025-03-02T10:50:39+00:00\"\r\n        }, \r\n        \"subject\":\"<p>Словить медведя.</p><p>Покормить медведя.</p>\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://radio-shop.megaplan.by/api/v3/task/1011368",
+					"protocol": "https",
+					"host": [
+						"radio-shop",
+						"megaplan",
+						"by"
+					],
+					"path": [
+						"api",
+						"v3",
+						"task",
+						"1011368"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authorization 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Exploratory2@1.1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Exploratory2@1.1",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://radio-shop.megaplan.by/api/v3/auth/access_token",
+					"protocol": "https",
+					"host": [
+						"radio-shop",
+						"megaplan",
+						"by"
+					],
+					"path": [
+						"api",
+						"v3",
+						"auth",
+						"access_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accept task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer YmI5NzEwNDM2NWEwZDEwNzI5MDNmN2MxYWUzOTcwNjQwOTM1ZGI1MWY0ODBjNjZjZjAzMzYwNzFkYzI0ODQ5Mg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": \"act_accept_task\",\r\n    \"checkTodos\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://radio-shop.megaplan.by/api/v3/task/1011368/doAction",
+					"protocol": "https",
+					"host": [
+						"radio-shop",
+						"megaplan",
+						"by"
+					],
+					"path": [
+						"api",
+						"v3",
+						"task",
+						"1011368",
+						"doAction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer YmI5NzEwNDM2NWEwZDEwNzI5MDNmN2MxYWUzOTcwNjQwOTM1ZGI1MWY0ODBjNjZjZjAzMzYwNzFkYzI0ODQ5Mg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": \"act_done\",\r\n    \"checkTodos\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://radio-shop.megaplan.by/api/v3/task/1011368/doAction",
+					"protocol": "https",
+					"host": [
+						"radio-shop",
+						"megaplan",
+						"by"
+					],
+					"path": [
+						"api",
+						"v3",
+						"task",
+						"1011368",
+						"doAction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update task comment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer NzA3NTUxNWY4NDc4OTA4NmVjODBkMzMxMjk5ZTI3NWRiZjZhMzY2YmMwMWJkMjA5YTE2MzA3NzUzZmZiMzZjNw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contentType\": \"CommentCreateActionRequest\",\r\n    \"comment\": {\r\n        \"contentType\": \"Comment\",\r\n        \"content\": \"Задача выполнена, медведь накормлен.\",\r\n        \"owner\": {\r\n            \"id\": \"1000105\",\r\n            \"contentType\": \"Employee\"\r\n        },\r\n        \"subject\": {\r\n            \"id\": \"1011368\",\r\n            \"contentType\": \"Task\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://radio-shop.megaplan.by/api/v3/task/1011368/comments",
+					"protocol": "https",
+					"host": [
+						"radio-shop",
+						"megaplan",
+						"by"
+					],
+					"path": [
+						"api",
+						"v3",
+						"task",
+						"1011368",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authorization 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Exploratory1@1.1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Exploratory1@1.1",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://radio-shop.megaplan.by/api/v3/auth/access_token",
+					"protocol": "https",
+					"host": [
+						"radio-shop",
+						"megaplan",
+						"by"
+					],
+					"path": [
+						"api",
+						"v3",
+						"auth",
+						"access_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close accept task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "ODkwZDQyOGIzYWI1ZGU2OGUxYzgzMjY4NzcyYmRlZjNiYjA3NTJmNzIzZjI5YTNjNzczYjNlZmE4ZjRkMTg4NA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ODkwZDQyOGIzYWI1ZGU2OGUxYzgzMjY4NzcyYmRlZjNiYjA3NTJmNzIzZjI5YTNjNzczYjNlZmE4ZjRkMTg4NA",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": \"act_accept_work\",\r\n    \"checkTodos\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://radio-shop.megaplan.by/api/v3/task/1011368/doAction",
+					"protocol": "https",
+					"host": [
+						"radio-shop",
+						"megaplan",
+						"by"
+					],
+					"path": [
+						"api",
+						"v3",
+						"task",
+						"1011368",
+						"doAction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "ODkwZDQyOGIzYWI1ZGU2OGUxYzgzMjY4NzcyYmRlZjNiYjA3NTJmNzIzZjI5YTNjNzczYjNlZmE4ZjRkMTg4NA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ODkwZDQyOGIzYWI1ZGU2OGUxYzgzMjY4NzcyYmRlZjNiYjA3NTJmNzIzZjI5YTNjNzczYjNlZmE4ZjRkMTg4NA",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://radio-shop.megaplan.by/api/v3/task/1011368",
+					"protocol": "https",
+					"host": [
+						"radio-shop",
+						"megaplan",
+						"by"
+					],
+					"path": [
+						"api",
+						"v3",
+						"task",
+						"1011368"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
